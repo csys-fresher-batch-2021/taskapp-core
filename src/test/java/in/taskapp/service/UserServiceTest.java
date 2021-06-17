@@ -1,5 +1,6 @@
 package in.taskapp.service;
 
+import in.taskapp.exception.ServiceException;
 import in.taskapp.model.User;
 
 public class UserServiceTest {
@@ -11,11 +12,17 @@ public class UserServiceTest {
 		
 		User user = new User();
 		user.setId(1);
-		user.setName("Naresh");
-		user.setEmail("n@gmail.com");
-		user.setPassword("pass123");
+		user.setName("n");
+		user.setEmail("n");
+		user.setPassword("  ");
 		
-		userService.addUser(user);
+		try {
+			userService.addUser(user);
+			System.out.println("Success");
+		} catch (ServiceException e) {
+			System.out.println("Error");
+			e.printStackTrace();
+		}
 		
 	}
 
